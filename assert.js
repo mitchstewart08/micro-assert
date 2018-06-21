@@ -33,12 +33,12 @@ export default class Assert{
     
     output(expectation, result, test, isSame){
         if(isSame){
-            return `TEST **${test.toUpperCase()}** PASSED`
+            return `TEST ${test.toUpperCase()} PASSED::`
         }else{
             if(typeof expectation === 'object'){
-                return `TEST **${test.toUpperCase()}** FAILED EXPECTED ${JSON.stringify(expectation)} but got ${JSON.stringify(result)}`
+                return `TEST ${test.toUpperCase()} FAILED:: EXPECTED ${JSON.stringify(expectation)} but got ${JSON.stringify(result)}`
             }else{
-                return `TEST **${test.toUpperCase()}** FAILED EXPECTED ${expectation} but got ${result}`
+                return `TEST ${test.toUpperCase()} FAILED:: EXPECTED ${expectation} but got ${result}`
             }
         }
     }
@@ -60,4 +60,3 @@ export default class Assert{
 
     
 }
-
