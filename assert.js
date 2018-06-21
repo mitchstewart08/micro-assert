@@ -60,18 +60,3 @@ export default class Assert{
 
     
 }
-
-let test = new Assert();
-let i = test.assertArray([1,2,3], [1,2,3,4], "Arrays Equal");
-i
-
-let obj1 = {a: 1, b: 2, c: 3, d: null}
-let obj2 = {a: 1, b: 2, c: 3}
-console.log(test.assert(obj1, obj2));
-console.log(test.assert("test", 5, "Different Types"))
-
-
-let k = assert.assert(obj1, obj2, "Compare objects");
-k
-
-console.log(assert.assert("pie", "pie", "Compare pies"));
