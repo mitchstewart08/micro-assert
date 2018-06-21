@@ -33,18 +33,18 @@ export default class Assert{
     
     output(expectation, result, test, isSame){
         if(isSame){
-            return `TEST ${test.toUpperCase()} PASSED::`
+            return `::TEST ${test.toUpperCase()} PASSED::`
         }else{
             if(typeof expectation === 'object'){
-                return `TEST ${test.toUpperCase()} FAILED:: EXPECTED ${JSON.stringify(expectation)} but got ${JSON.stringify(result)}`
+                return `::TEST ${test.toUpperCase()} FAILED:: EXPECTED ${JSON.stringify(expectation)} but got ${JSON.stringify(result)}`
             }else{
-                return `TEST ${test.toUpperCase()} FAILED:: EXPECTED ${expectation} but got ${result}`
+                return `::TEST ${test.toUpperCase()} FAILED:: EXPECTED ${expectation} but got ${result}`
             }
         }
     }
     assert(expectation, result, test=""){
         if(typeof expectation !== typeof result){
-            test += `TYPE DIFFERENCE ${typeof expectation} compared to ${typeof result}`
+            test += ` TYPE DIFFERENCE ${typeof expectation} compared to ${typeof result}`
             return this.output(expectation, result, test, false)
         }
         if(typeof expectation === "object"){
@@ -60,3 +60,18 @@ export default class Assert{
 
     
 }
+
+let test = new Assert();
+let i = test.assertArray([1,2,3], [1,2,3,4], "Arrays Equal");
+i
+
+let obj1 = {a: 1, b: 2, c: 3, d: null}
+let obj2 = {a: 1, b: 2, c: 3}
+console.log(test.assert(obj1, obj2));
+console.log(test.assert("test", 5, "Different Types"))
+
+
+let k = assert.assert(obj1, obj2, "Compare objects");
+k
+
+console.log(assert.assert("pie", "pie", "Compare pies"));
