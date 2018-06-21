@@ -1,6 +1,5 @@
 export default class Assert{
 
-    
     assertArray(expectation, result, test = ""){
         if(expectation.length !== result.length){
             return this.output(expectation, result, test, false);
@@ -34,12 +33,12 @@ export default class Assert{
     
     output(expectation, result, test, isSame){
         if(isSame){
-            return `TEST [${test.toUpperCase}] PASSED`
+            return `TEST **${test.toUpperCase()}** PASSED`
         }else{
             if(typeof expectation === 'object'){
-                return `TEST ${test} FAILED EXPECTED ${JSON.stringify(expectation)} but got ${JSON.stringify(result)}`
+                return `TEST **${test.toUpperCase()}** FAILED EXPECTED ${JSON.stringify(expectation)} but got ${JSON.stringify(result)}`
             }else{
-                return `TEST ${test} FAILED EXPECTED ${expectation} but got ${result}`
+                return `TEST **${test.toUpperCase()}** FAILED EXPECTED ${expectation} but got ${result}`
             }
         }
     }
@@ -61,19 +60,4 @@ export default class Assert{
 
     
 }
-
-let assert = new Assert();
-let i = assert.assertArray([1,2,3], [1,2,3,4], "Arrays Equal");
-i
-
-let obj1 = {a: 1, b: 2, c: 3, d: null}
-let obj2 = {a: 1, b: 2, c: 3}
-let j = assert.assertObj(obj1, obj2)
-j
-
-let k = assert.assert(obj1, obj2, "Compare objects");
-k
-
-console.log(assert.assert("test", 5))
-console.log(assert.assert("pie", "pie", "Compare pies"));
 
