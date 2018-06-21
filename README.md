@@ -13,4 +13,4 @@ assert is the only method you need to use, the library will worry about data typ
 test.assert(expectation, result, "Test name here");
 ```
 Works great with [Quokka](https://quokkajs.com/docs/index.html)
-![Example of micro-assert with Quokka](https://i.imgur.com/0UHQsY7.png)
+![Example of micro-assert with Quokka](https://i.imgur.com/rxFaWXQ.png)
